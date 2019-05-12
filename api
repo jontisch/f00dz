@@ -1,0 +1,53 @@
+ica.se
+	header
+		'recipepage__headline'
+		"//*[contains(concat(' ', normalize-space(@class), ' '), ' $class ')]"
+	how-to
+		'recipe-howto'
+		"//div[contains(concat(' ', normalize-space(@class), ' '), ' $class ')]/ol"
+	image
+		'print-only'
+		"//img[contains(concat(' ', normalize-space(@class), ' '), ' $class ')]/@src"
+	cook time
+		'recipe-header__difficulty'
+		"//div[contains(concat(' ', normalize-space(@class), ' '), ' $class ')]"
+	serves & ingredients
+		"//script[text()[contains(.,'window.__recipeData')]]"
+
+
+koket.se
+	header
+		"//h1[@itemprop='name']"	
+	how-to
+		"//ol[@itemprop='recipeInstructions']"
+	image
+		"//meta[@property='og:image']/@content"
+	cook time
+		"//time[@itemprop='totalTime']/@datetime"
+	serves & ingredients
+		
+
+
+
+menu json
+'{"0":{"id":"3", "serves":"4"},"1":{"id":"3", "serves":"4"},"2":{"id":"3", "serves":"4"},"3":{"id":"3", "serves":"4"},"4":{"id":"3", "serves":"4"},"5":{"id":"3", "serves":"4"},"6":{"id":"3", "serves":"4"}}'
+
+CREATE TABLE menus(
+	menu_id int(5) not null primary key auto_increment,
+	menu_name varchar(100) not null default 'Ny meny',
+	menu_createtime timestamp not null default CURRENT_TIMESTAMP,
+	menu_duration int(4) not null default 0,
+	menu_startdate date not null default CURDATE(),
+	menu_recipes varchar(600) not null default '{}',
+	menu_owner_id int(5) not null default 4,
+	menu_comments varchar(300) not null default ''
+)
+
+
+
+
+
+wood
+metal
+cardboard
+marble

@@ -1,0 +1,5 @@
+AddDefaultCharset UTF-8
+AuthName "Tell me who you are"
+AuthType Basic
+AuthUserFile /var/www/f00dz/.htpasswd
+Require valid-user
